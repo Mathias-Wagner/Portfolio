@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def load_saved_data():
-    with open("data/bevoelkerung.pkl", "rb") as input:
+    with open("data\\bevoelkerung.pkl", "rb") as input:
         df = pickle.load(input)
     
     return df
@@ -24,5 +24,5 @@ def update_data():
     
     df.loc[:, "Bevölkerung"] = df.loc[:, "Bevölkerung"] * 1000
     
-    with open("data/bevoelkerung.pkl", "wb") as output:
+    with open("data\\bevoelkerung.pkl", "wb") as output:
         pickle.dump(df, output)
