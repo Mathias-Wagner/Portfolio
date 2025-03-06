@@ -1,9 +1,13 @@
+import os
 import pickle
 import pandas as pd
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+FILE_PATH_BEVOELK = os.path.join(BASE_DIR, "data", "bevoelkerung.pkl")
+
 def load_saved_data():
-    with open("data\\bevoelkerung.pkl", "rb") as input:
+    with open(FILE_PATH_BEVOELK, "rb") as input:
         df = pickle.load(input)
     
     return df
@@ -24,5 +28,5 @@ def update_data():
     
     df.loc[:, "Bevölkerung"] = df.loc[:, "Bevölkerung"] * 1000
     
-    with open("data\\bevoelkerung.pkl", "wb") as output:
+    with open(FILE_PATH_BEVOELK, "wb") as output:
         pickle.dump(df, output)
