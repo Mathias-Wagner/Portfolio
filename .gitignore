@@ -1,6 +1,7 @@
 # Large Files
 *.xlsx
 *.csv
+Screenshots
 
 # Python
 __pycache__

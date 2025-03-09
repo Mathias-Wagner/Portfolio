@@ -21,3 +21,8 @@ line_chart = px.line(data_frame=df_filtered,
                      y="Bevölkerung")
 
 st.plotly_chart(line_chart)
+
+col1, col2 = st.columns([.65, .35])
+col2.markdown("Quelle: [UN Population Division](https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx) \n \
+(zuletzt abgerufen am 09.03.2025)",
+unsafe_allow_html=False)
