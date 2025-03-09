@@ -5,5 +5,5 @@
 # Python
 __pycache__
 
-# Folders
-notebooks
+# Notebooks
+__*.ipynb
