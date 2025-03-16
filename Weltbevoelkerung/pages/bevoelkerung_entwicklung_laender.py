@@ -30,6 +30,7 @@ x_label = "Wachstum in Mio" if st.session_state["abs/rel"] == "absolut" else "Wa
 bar_chart = px.bar(df_out[::-1],
                    x="Wachstum",
                    y="Land",
+                   title="Top 10 Länder mit dem stärksten Wachstum",
                    orientation="h")
 
 bar_chart.update_layout(xaxis_title=x_label,
