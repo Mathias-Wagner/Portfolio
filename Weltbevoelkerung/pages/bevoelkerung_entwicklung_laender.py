@@ -23,11 +23,16 @@ df_trend["Wachstum"] = ((df_trend["Bevoelkerung_bis"] - df_trend["Bevoelkerung_v
 
 df_out = (df_trend[["Land", "Wachstum"]]
           .sort_values(by="Wachstum",
-                       ascending=False).iloc[:10])
+                       ascending=False).iloc[:10][::-1])
 
-x_label = "Wachstum in Mio" if st.session_state["abs/rel"] == "absolut" else "Wachstum in %"
+if st.session_state["abs/rel"] == "absolut":
+    x_label = "Wachstum in Mio"
+    text_format = "%{x:.0f} Mio"
+else:
+    x_label = "Wachstum in %"
+    text_format = "%{x:.0f} %"
 
-bar_chart = px.bar(df_out[::-1],
+bar_chart = px.bar(df_out,
                    x="Wachstum",
                    y="Land",
                    title="Top 10 Länder mit dem stärksten Wachstum",
@@ -35,6 +40,8 @@ bar_chart = px.bar(df_out[::-1],
 
 bar_chart.update_layout(xaxis_title=x_label,
                         yaxis_title=None)
+bar_chart.update_traces(texttemplate=text_format,
+                        textposition="inside")
 
 st.plotly_chart(bar_chart)
 
