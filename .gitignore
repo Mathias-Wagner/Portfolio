@@ -1,3 +1,6 @@
+# Sensitive data
+.env
+
 # Large Files
 *.xlsx
 *.csv
