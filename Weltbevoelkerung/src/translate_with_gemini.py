@@ -9,7 +9,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 api_key = os.environ.get("GEMINI_API_KEY")
 
 # Lade Daten
-with open("../data/bevoelkerung_english.pkl", "rb") as input:
+with open("../data/geschlechterverteilung.pkl", "rb") as input:
     df = pickle.load(input)
 
 # Erstelle Liste aller Länder und Prompt für Gemini
@@ -33,5 +33,6 @@ uebersetzung = json.loads(response.text[8:-4])
 df["Land"] = df["Land"].replace(uebersetzung)
 
 # Speichere Daten
-with open("../data/bevoelkerung.pkl", "wb") as output:
+with open("../data/geschlechterverteilung.pkl", "wb") as output:
     pickle.dump(df, output)
+

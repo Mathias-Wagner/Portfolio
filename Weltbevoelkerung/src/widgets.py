@@ -14,6 +14,27 @@ def get_abs_rel():
     st.session_state["abs/rel"] = st.radio(label="Verändung",
                                            options=["absolut", "relativ"],
                                            horizontal=True)
+    
+
+def __get_laender():
+    laender = list(get_data.lade_geschlechterverteilung()["Land"].unique())
+    laender.sort()
+    laender.remove("Welt")
+    laender.remove("Deutschland")
+    laender.remove("Österreich")
+    laender.remove("Schweiz")
+    laender.insert(0, "Schweiz")
+    laender.insert(0, "Österreich")
+    laender.insert(0, "Deutschland")
+    laender.insert(0, "Welt")
+    
+    return laender
+    
+
+def get_dropdown_laender():
+    laender = __get_laender()
+    st.session_state["land"] = st.selectbox(label="Land",
+                                            options=laender)
 
 
 def get_quelle():

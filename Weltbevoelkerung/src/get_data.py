@@ -6,6 +6,7 @@ import pandas as pd
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 __FILE_PATH_BEVOELK_GESAMT = os.path.join(BASE_DIR, "data", "bevoelkerung.pkl")
 __FILE_PATH_BEVOELK_ENTWICKLUNG = os.path.join(BASE_DIR, "data", "bevoelkerungsentwicklung.pkl")
+__FILE_PATH_GESCHLECHTERVERTEILUNG = os.path.join(BASE_DIR, "data", "geschlechterverteilung.pkl")
 __FILE_PATH_JAHR_MIN_MAX = os.path.join(BASE_DIR, "data", "jahr_min_max.pkl")
 
 def __lade_dataframe(file_path):
@@ -21,6 +22,10 @@ def lade_bevoelkerung_gesamt():
 
 def lade_bevoelkerung_entwicklung():
     return __lade_dataframe(__FILE_PATH_BEVOELK_ENTWICKLUNG)
+
+
+def lade_geschlechterverteilung():
+    return __lade_dataframe(__FILE_PATH_GESCHLECHTERVERTEILUNG)
 
 
 def lade_jahr_min_max():
